@@ -1,2 +1,2 @@
 # ReactNative
-����һ�� ReactNative ѧϰ����
+这是一个 ReactNative 学习工程，ReactNative主要是通过JavaScript实现跨平台开发的语言。以H5前端技术，再以Native配合来实现移动端的开发，确实从目前的趋势来看，学习此项技术是一个不错的选择
