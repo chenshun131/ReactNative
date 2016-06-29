@@ -12,6 +12,7 @@
 <div id="t1"></div><br/><br/>
 <div id="t2"></div><br/><br/>
 <div id="t3"></div><br/><br/>
+<div id="t4"></div><br/><br/>
 
 <script type="text/babel">
   // 显示语法知识
@@ -19,7 +20,7 @@
   ({
     render: function ()
     {
-      return <h1>Hello {this.props.name}</h1>;
+      return <h1 style={{color:'#FF0000',fontSize:'14px'}}>Hello {this.props.name}</h1>;
     }
   });0
   ReactDOM.render(<HelloMessage name="React 基础语法知识"/>, document.getElementById("t1"));
@@ -80,6 +81,14 @@
     }
   });
   ReactDOM.render(<ShowEdit />, document.getElementById("t3"));
+
+  // 事件绑定
+  function testClick()
+  {
+    alert('测试事件绑定');
+  }
+  var app = <button onClick={testClick.bind(this)} style={{backgroundColor:'#FF0000', fontSize:'28px', width:'200px', height:'100px'}}>点我吧</button>
+  ReactDOM.render(app, document.getElementById('t4'));
 </script>
 </body>
 </html>
