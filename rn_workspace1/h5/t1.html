@@ -3,18 +3,30 @@
 <head lang="en">
   <meta charset="UTF-8">
   <title>H5基础知识学习</title>
+  <script type="text/javascript">
+    function changeHidden() {
+      var pId1 = document.getElementById("pId1");
+      if (pId1.hasAttribute("hidden")) {
+        pId1.removeAttribute("hidden");
+      } else {
+        pId1.setAttribute("hidden", "hidden");
+      }
+    }
+  </script>
 </head>
 <body>
 
 <code>
   int i = 0;
   if(i == 0) {
-    System.out.println("i等于0");
+  System.out.println("i等于0");
   } else {
-    System.out.println("i不等于0");
+  System.out.println("i不等于0");
   }
 </code><br>
-&lt; 你牛逼，你上 &gt;
+&lt; 你牛逼，你上 &gt;<br>
+
+<p id="pId1" contenteditable="false" draggable="true" onclick="changeHidden();" title="这是一个测试标签">Love In China</p>
 
 </body>
 </html>
