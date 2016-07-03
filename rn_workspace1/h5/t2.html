@@ -4,9 +4,14 @@
   <base href="http://localhost:63342/rn_workspace1/h5/">
   <meta name="author" content="chen shun">
   <meta name="description" content="A simple HTML page">
-  <meta charset="UTF-8">
+  <meta http-equiv="content-type" content="text/html" charset="UTF-8">
   <meta http-equiv="referer" content="5;http://www.baidu.com">
   <title></title>
+  <link rel="shortcut icon" type="image/x-icon" href="img/log.png"/>
+  <link rel="stylesheet" type="text/css" href="css/style1.css"/>
+  <link rel="prefetch" href="t1.html"/>
+  <style media="all" type="text/css"></style>
+  <script type="text/javascript" src="js/t1.js" defer></script>
   <script type="text/javascript">
     /*
      document.write("Naruto");
@@ -32,37 +37,29 @@
      document.write("" + e);
      } finally {
      console.log("finally");
-     }*/
+     }
 
-    var myData = {
-      name: "Adam",
-      head: null
-    };
-    console.log("face = " + myData.face);
-    console.log("head = " + myData.head);
+     var myData = {
+     name: "Adam",
+     head: null
+     };
+     console.log("face = " + myData.face);
+     console.log("head = " + myData.head);*/
   </script>
-  <style type="text/css">
-    a {
-      background-color: gray;
-      color: green;
-    }
-
-    span {
-      border: thin black solid;
-      padding: 10px;
-    }
-  </style>
+  <noscript>
+    <p>当前浏览器不支持运行 JavaScript 脚本，请在浏览器中设置</p>
+  </noscript>
 </head>
 <body>
 
 <a href="http://apress.com">Visit the Apress website</a>
 
 <p>I like <span>apples</span> and oranges.</p>
-<a href="http://w3c.org">Visit the W3C website</a>
+<a href="http://www.w3c.org">Visit the W3C website</a>
 
 <address>表示文档或article的联系信息</address>
 
-<a href="t1.html">跳转到t1.html</a>
+<a id="aId1" href="t1.html">跳转到t1.html</a>
 
 </body>
 </html>
