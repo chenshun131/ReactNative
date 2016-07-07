@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+    div.panel, p.flip {
+      margin: 0px;
+      padding: 5px;
+      text-align: center;
+      background: #e5eecc;
+      border: solid 1px #c3c3c3;
+    }
+
+    div.panel {
+      height: 100px;
+      display: none;
+    }
+  </style>
+  <script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#buttonId1").click(function () {
+        var pId1 = $("#pId1");
+        if (pId1.is(":hidden")) {
+          pId1.show();
+        } else {
+          pId1.hide();
+        }
+      });
+
+      var i = 0;
+      $("#buttonId2").click(function () {
+        var pId1 = $("#pId1");
+        if (i == 0) {
+          pId1.css("background-color", "red");
+          i++;
+        } else if (i == 1) {
+          pId1.css("background-color", "green");
+          i++;
+        } else if (i == 2) {
+          pId1.css("background-color", "blue");
+          i = 0;
+        }
+      });
+
+      $("#buttonId3").click(function () {
+        var pId3 = $("#pId3");
+        if (pId3.is(":hidden")) {
+          pId3.fadeIn();
+        } else {
+          pId3.fadeOut();
+        }
+      });
+
+      $("#buttonId4").click(function () {
+        $("#pId4").slideDown();
+      });
+
+      $("#pId4").click(function () {
+        $(".panel").slideToggle("slow");
+      });
+
+      $("#pId5").click(function () {
+        $(".panel").stop();
+      });
+
+      $("#pId6").click(function () {
+        var pId61 = $("#pId61");
+        var text = pId61.text();
+        var html = pId61.html();
+        var val = $("#pId62").val();
+        var attr = $("#pId63").attr("href");
+        alert("text = " + text + "\nhtml = " + html + "\nval = " + val + "\nattr = " + attr);
+      });
+
+      $("#pId7").click(function () {
+        $("#pId63").attr("href", "http://www.csdn.net/");
+      });
+
+      $("#pId8").click(function () {
+        $("#pId811").append("<b>append()</b>");
+      });
+
+      $("#pId9").click(function () {
+        $("#pId811").prepend("<b>prepend()</b>");
+      });
+
+      $("#pId10").click(function () {
+        $("#pId811").after("<b>after()</b>");
+      });
+
+      $("#pId11").click(function () {
+        $("#pId811").before("<b>before()</b>");
+      });
+
+      $("#pId12").click(function () {
+        $("#pId811").remove();
+      });
+
+      $("#pId13").click(function () {
+        $("#pId811").empty();
+      });
+
+      $("#pId14").click(function () {
+        $.get("http://gank.io/api/day/history", function (data, status) {
+          // alert(jQuery.type(data));
+
+          // alert("error : " + data.error);
+          // alert("results : " + data.results);
+          // console.log(data.results);
+          /*
+           {
+           "error": false,
+           "results": [
+           "2016-07-07",
+           "2015-05-19",
+           "2015-05-18"
+           ]
+           }*/
+
+          var result;
+          for (var i = 0; i < data.results.length; i++) {
+            alert(data.results[i]);
+          }
+        });
+      });
+
+      $("#pId15").click(function () {
+        $.post("http://120.24.41.89:8090/epsotServer/loginModel/getEncryptKey", {keyType: "rsa"}, function (data, status) {
+          alert("statusCode : " + data.statusCode +
+            "\nmessage : " + data.message +
+            "\nmodulus : " + data.value.modulus +
+            "\npublicExponent : " + data.value.publicExponent);
+        });
+      });
+
+      $("#pId16").bind("click", function () {
+        alert("绑定事件成功！");
+      });
+    });
+  </script>
+</head>
+<body>
+
+<h2>This is heading</h2>
+<p id="pId1">文字颜色将被修改</p>
+<button id="buttonId1" type="button">点击我，p元素消失(jQuery方式)</button>
+<br><br><br>
+
+<button id="buttonId2" type="button">点击我，我将消失(JavaScript方式)</button>
+<br><br><br>
+
+<p id="pId3">文字颜色将被修改</p>
+<button id="buttonId3" type="button">淡入隐藏元素</button>
+<br><br><br>
+
+<p id="pId4" class="flip">点击这里 显示/隐藏 文本区域</p>
+<p id="pId5" class="flip">点击这里 停止动画</p>
+<p id="pId6" class="flip">获取内容</p>
+<p id="pId7" class="flip">修改内容</p>
+<div class="panel">
+  <p id="pId61">学习一下<b>jQuery</b>基础知识</p>
+  <input id="pId62" type="hidden" value="这是hidden中的值">
+  <a id="pId63" href="http://www.baidu.com">跳转</a>
+  <p>马上开始JQuery-mobile，嘻嘻哈哈！</p>
+</div>
+<br><br><br>
+
+<p id="pId8" class="flip">append() - 在被选元素的结尾插入内容</p>
+<p id="pId9" class="flip">prepend() - 在被选元素的开头插入内容</p>
+<p id="pId10" class="flip">after() - 在被选元素之后插入内容</p>
+<p id="pId11" class="flip">before() - 在被选元素之前插入内容</p>
+<p id="pId12" class="flip">remove() - 删除被选元素（及其子元素）</p>
+<p id="pId13" class="flip">empty() - 从被选元素中删除子元素</p>
+<p id="pId811">增加新的<b>属性</b>，这些东西!</p>
+<br><br><br>
+
+<p id="pId14" class="flip">Get方式请求网络</p>
+<br>
+<p id="pId15" class="flip">Post方式请求网络</p>
+<br>
+
+<p id="pId16" class="flip" title="附加一个或更多事件处理器">向匹配元素附加一个或更多事件处理器</p>
+<br>
+
+</body>
+</html>
